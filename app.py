@@ -17,7 +17,7 @@ def load(path):
     tok = AutoTokenizer.from_pretrained("Qwen/Qwen2.5-0.5B")
     model = AutoModelForCausalLM.from_pretrained(path, torch_dtype=torch.bfloat16).eval()
     return tok, model
-
+st.warning("Research demo of a small 0.5B model. Outputs may be inaccurate, incomplete or unsafe. Not advice.")
 name = st.selectbox("Model", list(MODELS))
 prompt = st.text_area("Prompt", "Explain how the internet works to a 12-year-old.", height=100)
 max_new = st.slider("Max new tokens", 50, 300, 150, 10)
